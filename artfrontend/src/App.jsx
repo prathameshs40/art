@@ -15,7 +15,7 @@ function App() {
       <div className="h-screen w-full flex flex-col justify-center items-center">
         <div className="flex flex-col">
           <span className="font-light font-mont">{data.welcome}</span>
-          <span className="text-9xl font-black font-dm">{data.company}</span>
+          <span className="text-9xl font-black font-mont">{data.company}</span>
         </div>
       </div>
     </>
