@@ -1,25 +1,53 @@
-import { useState, useEffect } from "react";
+import Home from "./pages/homePage";
+import Router from "./routes/routes";
+import Header from "./components/layouts/header";
+import Footer from "./components/layouts/footer";
+import Lenis from "@studio-freight/lenis";
+import { useState, useEffect, useContext, React } from "react";
+import SiteContext from "./context/siteContext";
 
 function App() {
-  const [data, setData] = useState({});
-
+  const [theme, setTheme] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [ringPosition, setRingPosition] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
   useEffect(() => {
-    fetch("http://localhost:8000/users")
-      .then((response) => response.json())
-      .then((data) => setData(data.data))
-      .catch((error) => console.error(error));
+    const lenis = new Lenis({
+      duration: 1.3,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: "vertical",
+      smooth: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => lenis.destroy();
   }, []);
 
   return (
     <>
-      <div className="h-screen w-full flex flex-col justify-center items-center">
-        <div className="flex flex-col">
-          <span className="font-light font-mont">{data.welcome}</span>
-          <span className="text-9xl font-black font-mont">{data.company}</span>
-        </div>
-      </div>
+      <SiteContext.Provider
+        value={{
+          theme,
+          setTheme,
+          isMenuOpen,
+          setIsMenuOpen,
+          ringPosition,
+          setRingPosition,
+          currentPage,
+          setCurrentPage,
+        }}
+      >
+        <Header />
+        <Router />
+        <Footer />
+      </SiteContext.Provider>
     </>
   );
 }
-
 export default App;

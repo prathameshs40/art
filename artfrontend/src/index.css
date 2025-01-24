@@ -9,3 +9,27 @@
 .font-mont{
   font-family: "Montserrat",serif;
 }
+body {
+  font-family: "Montserrat";
+}
+nav {
+  @apply flex justify-between h-[10vh] items-center  p-5;
+}
+nav img {
+  @apply h-full object-cover;
+}
+.profile {
+  @apply h-full rounded-2xl  p-3 bg-slate-100 aspect-square flex justify-center items-center;
+}
+.profile svg {
+  @apply h-2/3 w-2/3;
+}
+.sidenav{
+  @apply fixed  top-0 right-0 w-full h-screen transition duration-700 flex   p-4 bg-red-600 text-white;
+}
+.sidenav .leftSideNav{
+  @apply   flex flex-col text-9xl p-4  w-[90%] font-black uppercase;
+}
+.sidenav .rightSideNav{
+  @apply   flex flex-col font-light items-center text-2xl p-4  w-[10%];
+}
