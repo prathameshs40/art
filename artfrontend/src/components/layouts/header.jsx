@@ -7,8 +7,9 @@ function Header() {
   const { isMenuOpen, theme, setTheme, setIsMenuOpen } =
     useContext(SiteContext);
   const navigate = useNavigate();
-  const goToAbout = (url) => {
+  const navigateToPage = (url) => {
     navigate(url);
+    setIsMenuOpen(false)
   };
   return (
     <>
@@ -32,13 +33,13 @@ function Header() {
           </div>
         </nav>
         <div
-          className={`sidenav  ${
-            isMenuOpen ? "translate-y-0 " : "-translate-y-full"
+          className={`sidenav   bg-black/30  ${
+            isMenuOpen ? "translate-y-0  backdrop-blur-2xl" : "-translate-y-full backdrop-blur-0"
           }`}
         >
           <div className="leftSideNav">
-            <span onClick={() => goToAbout("/")}>Home</span>
-            <span onClick={() => goToAbout("/about")}>about</span>
+            <span onClick={() => navigateToPage("/")}>Home</span>
+            <span onClick={() => navigateToPage("/about")}>about</span>
           </div>
           <div className="rightSideNav">
             <span onClick={() => setIsMenuOpen(false)}>close</span>

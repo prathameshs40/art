@@ -1,11 +1,23 @@
 import { useState, useEffect } from "react";
 import SiteContext from "../context/siteContext";
 import { useContext } from "react";
+import { gsap } from "gsap";
 function Home() {
   const [data, setData] = useState({
     welcome: "Welcom To",
     company: "OrcaPixel",
   });
+  useEffect(() => {
+    // GSAP Animation
+    const tl = gsap.timeline();
+    tl.from(".line span", 1, {
+      y: 150,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.3,
+      },
+    });
+  }, []);
   const { isMenuOpen, theme, setTheme, setIsMenuOpen } =
     useContext(SiteContext);
   // useEffect(() => {
@@ -30,10 +42,16 @@ function Home() {
           className=" min-h-screen pagex flex flex-col justify-center items-center"
         >
           <div className="flex flex-col">
-            <span className="font-light font-mont">{data.welcome}</span>
+      <div className="line relative w-[70%] flex overflow-hidden">
+        <span className="font-light font-mont leading-none">{data.welcome}</span>
+      </div>
+      <div className="line relative w-auto flex overflow-hidden">
+        <span className="text-9xl font-black font-mont uppercase leading-none">{data.company}</span>
+      </div>
+            {/* <span className="font-light font-mont">{data.welcome}</span>
             <span className="text-9xl font-black font-mont uppercase">
               {data.company}
-            </span>
+            </span> */}
           </div>
         </div>
 
