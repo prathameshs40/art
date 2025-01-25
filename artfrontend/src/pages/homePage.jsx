@@ -20,8 +20,8 @@ function Home() {
       <div
         className={`transition-all duration-700 ${
           theme
-            ? "text-prime-dark-1 bg-prime-white-1"
-            : "text-prime-white-1 bg-prime-dark-1"
+            ? "text-red-500 "
+            : "text-prime-white-1 "
         }`}
       >
         {/* Page 1 */}
@@ -40,7 +40,7 @@ function Home() {
         {/* Page 2 */}
         <div
           id="page-2"
-          className="min-h-screen pagex bg-slate-800 flex flex-col justify-center items-center"
+          className="min-h-screen pagex flex flex-col justify-center items-center"
         >
           <h1 className="text-white text-4xl">Page 2</h1>
         </div>
@@ -48,7 +48,7 @@ function Home() {
         {/* Page 3 */}
         <div
           id="page-3"
-          className="min-h-screen pagex bg-sky-800 flex flex-col justify-center items-center"
+          className="min-h-screen pagex  flex flex-col justify-center items-center"
         >
           <h1 className="text-white text-4xl">Page 3</h1>
         </div>
@@ -56,7 +56,7 @@ function Home() {
         {/* Page 4 */}
         <div
           id="page-4"
-          className="min-h-screen pagex bg-red-800 flex flex-col justify-center items-center"
+          className="min-h-screen pagex  flex flex-col justify-center items-center"
         >
           <h1 className="text-white text-4xl">Page 4</h1>
         </div>

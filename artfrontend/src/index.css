@@ -3,33 +3,54 @@
 @tailwind components;
 @tailwind utilities;
 
-.font-dm{
-  font-family: "DM Serif Display","Montserrat";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.font-mont{
-  font-family: "Montserrat",serif;
+
+.font-dm {
+  font-family: "DM Serif Display", "Montserrat";
 }
+
+.font-mont {
+  font-family: "Montserrat", serif;
+}
+
 body {
+  position: relative;
   font-family: "Montserrat";
+  overflow-x: hidden;
 }
+
+canvas {
+  display: block;
+}
+
 nav {
-  @apply flex justify-between h-[10vh] items-center  p-5;
+  @apply flex justify-between h-[10vh] items-center p-5;
 }
+
 nav img {
   @apply h-full object-cover;
 }
+
 .profile {
-  @apply h-full rounded-2xl  p-3 bg-slate-100 aspect-square flex justify-center items-center;
+  @apply h-full rounded-2xl p-3 bg-slate-100 aspect-square flex justify-center items-center;
 }
+
 .profile svg {
   @apply h-2/3 w-2/3;
 }
-.sidenav{
-  @apply fixed  top-0 right-0 w-full h-screen transition duration-700 flex   p-4 bg-red-600 text-white;
+
+.sidenav {
+  @apply fixed top-0 right-0 w-full h-screen transition duration-700 flex p-4 bg-black/30 backdrop-blur-2xl text-white;
 }
-.sidenav .leftSideNav{
-  @apply   flex flex-col text-9xl p-4  w-[90%] font-black uppercase;
+
+.sidenav .leftSideNav {
+  @apply flex flex-col text-9xl p-4 w-[90%] font-black uppercase;
 }
-.sidenav .rightSideNav{
-  @apply   flex flex-col font-light items-center text-2xl p-4  w-[10%];
+
+.sidenav .rightSideNav {
+  @apply flex flex-col font-light items-center text-2xl p-4 w-[10%];
 }

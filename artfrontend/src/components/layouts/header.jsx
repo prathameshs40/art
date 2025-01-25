@@ -15,7 +15,7 @@ function Header() {
       <Stepper />
       <header
         className={`transition-all ease-in-out duration-500 z-50 fixed top-0 w-full  ${
-          theme ? "text-black" : "text-white"
+          theme ? "text-red-500" : "text-white"
         } `}
       >
         <nav>

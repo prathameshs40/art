@@ -1,5 +1,6 @@
 import Home from "./pages/homePage";
 import Router from "./routes/routes";
+import ParticlesScene from "./components/particlesScene";
 import Header from "./components/layouts/header";
 import Footer from "./components/layouts/footer";
 import Lenis from "@studio-freight/lenis";
@@ -44,6 +45,7 @@ function App() {
         }}
       >
         <Header />
+        <ParticlesScene />
         <Router />
         <Footer />
       </SiteContext.Provider>
