@@ -21,6 +21,7 @@ body {
   position: relative;
   font-family: "Montserrat";
   overflow-x: hidden;
+  background-color: black;
 }
 
 canvas {
@@ -48,7 +49,7 @@ nav img {
 }
 
 .sidenav .leftSideNav {
-  @apply flex flex-col text-9xl p-4 w-[90%] font-black uppercase;
+  @apply flex flex-col text-9xl p-4 w-[90%] justify-center font-black uppercase pl-20;
 }
 
 .sidenav .rightSideNav {

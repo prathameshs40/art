@@ -45,7 +45,10 @@ const ParticlesScene = () => {
         vertices.push(x, y, z);
       }
 
-      geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3));
+      geometry.setAttribute(
+        "position",
+        new THREE.Float32BufferAttribute(vertices, 3)
+      );
 
       material = new THREE.PointsMaterial({
         size: 3,

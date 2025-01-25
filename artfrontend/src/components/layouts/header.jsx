@@ -9,7 +9,7 @@ function Header() {
   const navigate = useNavigate();
   const navigateToPage = (url) => {
     navigate(url);
-    setIsMenuOpen(false)
+    setIsMenuOpen(false);
   };
   return (
     <>
@@ -26,7 +26,7 @@ function Header() {
             {/* <button className="bg-orange-100 rounded-2xl  mr-2 font-semibold italic px-5 text-orange-500">
               Book A Slot
             </button> */}
-            <button onClick={() => setIsMenuOpen(true)}>Menu</button>
+            {/* <button onClick={() => setIsMenuOpen(true)}>Menu</button> */}
             <button className="ml-4" onClick={() => setTheme(!theme)}>
               Switch
             </button>
@@ -34,7 +34,9 @@ function Header() {
         </nav>
         <div
           className={`sidenav   bg-black/30  ${
-            isMenuOpen ? "translate-y-0  backdrop-blur-2xl" : "-translate-y-full backdrop-blur-0"
+            isMenuOpen
+              ? "translate-y-0  backdrop-blur-2xl"
+              : "-translate-y-full backdrop-blur-0"
           }`}
         >
           <div className="leftSideNav">
