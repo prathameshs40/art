@@ -57,7 +57,7 @@ const PageTitleSection = () => {
           Your Digital Growth Partner
         </span>
         <span className="text-5xl leading-none span span3 absolute translate-y-[100px]">
-          What We DoWhat We Do
+          What We Do
         </span>
         <span className="text-5xl leading-none span span4 absolute translate-y-[100px]">
           Digital Marketing

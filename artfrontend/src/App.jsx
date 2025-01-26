@@ -3,7 +3,7 @@ import Router from "./routes/routes";
 import ParticlesScene from "./components/particlesScene";
 import Header from "./components/layouts/header";
 import Footer from "./components/layouts/footer";
-import PageTitleSection from "./components/pageTitleSection";
+
 import Lenis from "@studio-freight/lenis";
 import { useState, useEffect, useContext, React } from "react";
 import SiteContext from "./context/siteContext";
@@ -14,9 +14,10 @@ function App() {
 
   const [ringPosition, setRingPosition] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+  const [aboutPageCounter, setAboutPageCounter] = useState(0);
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.3,
+      duration: 2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: "vertical",
       smooth: true,
@@ -44,12 +45,14 @@ function App() {
           setRingPosition,
           currentPage,
           setCurrentPage,
+          aboutPageCounter,
+          setAboutPageCounter,
         }}
       >
         <Header />
         <ParticlesScene />
-        <PageTitleSection />
         <Router />
+
         <Footer />
       </SiteContext.Provider>
     </>

@@ -27,6 +27,15 @@ function Header() {
               Book A Slot
             </button> */}
             {/* <button onClick={() => setIsMenuOpen(true)}>Menu</button> */}
+            <button
+              className="ml-4"
+              onClick={() =>
+                (window.location.href = "https://wa.me/9730534176?text=Hi")
+              }
+            >
+              Contact
+            </button>
+
             <button className="ml-4" onClick={() => setTheme(!theme)}>
               Switch
             </button>
