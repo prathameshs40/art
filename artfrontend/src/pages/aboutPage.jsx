@@ -114,6 +114,22 @@ const About = () => {
           success with transformative technology and creative strategies.
         </h1>
       </div>
+      <div
+        id="page-3"
+        className="min-h-screen pagez  flex flex-col justify-center items-end pr-52"
+      >
+        {" "}
+        <h1 className="text-red-500 mt-20">What Sets Us Apart?</h1>
+        <h1 className="text-red-500 mt-20">Comprehensive Solutions</h1>
+        <h1 className="text-white text-base font-light w-1/2">
+          From designing intuitive websites to developing mobile apps and
+          crafting strategic digital marketing campaigns, we offer everything
+          you need to establish a strong digital presence.From designing
+          intuitive websites to developing mobile apps and crafting strategic
+          digital marketing campaigns, we offer everything you need to establish
+          a strong digital presence.
+        </h1>
+      </div>
     </>
   );
 };

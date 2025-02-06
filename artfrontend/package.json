@@ -5,7 +5,6 @@
   "dependencies": {
     "@studio-freight/lenis": "^1.0.42",
     "cra-template": "1.2.0",
-    "curtainsjs": "^8.1.6",
     "gsap": "^3.12.5",
     "jquery": "^3.7.1",
     "react": "^19.0.0",

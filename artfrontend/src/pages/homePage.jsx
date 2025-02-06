@@ -4,11 +4,10 @@ import { useContext } from "react";
 import PageTitleSection from "./../components/pageTitleSection";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import TestPyramid from "../components/TestPyramid";
+import TestCube from "../components/BloomingHeart";
+import ThreeJSComponent from "../components/ThreeJSComponent";
 function Home() {
-  const [data, setData] = useState({
-    welcome: "Welcom To",
-    company: "OrcaPixel",
-  });
   const { isMenuOpen, theme, setTheme, setIsMenuOpen } =
     useContext(SiteContext);
   useEffect(() => {
@@ -17,9 +16,12 @@ function Home() {
     document.querySelectorAll(".scaleNGo").forEach((element) => {
       gsap.fromTo(
         element,
-        { scale: 1, opacity: 1 },
         {
-          scale: 2,
+          //  scale: 1,
+          opacity: 1,
+        },
+        {
+          // scale: 2,
           opacity: 0,
           scrollTrigger: {
             trigger: element,
@@ -39,7 +41,7 @@ function Home() {
           opacity: 0,
           scrollTrigger: {
             trigger: element,
-            start: "70% center",
+            start: "50% center",
             end: "bottom center",
             scrub: true,
             // markers: true,
@@ -69,20 +71,13 @@ function Home() {
       y: 150,
       ease: "power4.out",
       stagger: {
-        amount: 0.6,
+        amount: 0.3,
       },
     });
   }, []);
-  // useEffect(() => {
-  //   fetch("http://localhost:8000/users")
-  //     .then((response) => response.json())
-  //     .then((data) => setData(data.data))
-  //     .catch((error) => console.error(error));
-  // }, []);
-
   return (
     <>
-      <PageTitleSection />
+      {/* <PageTitleSection /> */}
       <div
         className={`transition-all duration-700 ${
           theme ? "text-red-500 " : "text-prime-white-1 "
@@ -94,17 +89,20 @@ function Home() {
           className="scaleNGo min-h-screen pagex flex flex-col justify-center items-center"
         >
           <div className="flex flex-col ">
-            <div className="line relative w-[70%] flex overflow-hidden">
-              <span className="font-light font-mont leading-none">
-                {data.welcome}
-              </span>
-            </div>
             <div className="line relative w-auto flex overflow-hidden">
               <span
                 className="text-9xl font-light font-mont uppercase leading-none tracking-prime
 "
               >
-                {data.company}
+                OrcaPixel
+              </span>
+            </div>
+            <div className="line relative w-[100%] flex overflow-hidden justify-center">
+              <span
+                className="font-light font-mont leading-none "
+                style={{ letterSpacing: "50px" }}
+              >
+                DESIGN STUDIO
               </span>
             </div>
             {/* <span className="font-light font-mont">{data.welcome}</span>
@@ -117,66 +115,93 @@ function Home() {
         {/* Page 2 */}
         <div
           id="page-2"
-          className="opacityNGo min-h-screen pagex flex flex-col justify-center items-end pr-52"
+          className="opacityNGo min-h-screen pagex flex flex-col justify-center items-center"
         >
-          <h1 className="text-white text-base font-light w-1/2 ">
-            At OrcaPixel, we specialize in creating stunning websites, dynamic
-            mobile apps, and innovative digital marketing solutions. Whether
-            it’s a sleek design, a powerful development solution, or a strategy
-            to grow your online presence, we’re here to make it happen
+          <h1 className="text-7xl text-center font-light  mb-4">
+            Transforming Ideas into Digital Realities
           </h1>
+          <div className="flex justify-center items-center ">
+            <div className="flex justify-center items-center w-[70%]">
+              <TestPyramid />
+              <h1 className="text-white font-light w-1/2 text-center">
+                At OrcaPixel, we specialize in creating stunning websites,
+                dynamic mobile apps, and innovative digital marketing solutions.
+                Whether it’s a sleek design, a powerful development solution, or
+                a strategy to grow your online presence, we’re here to make it
+                happen
+              </h1>
+            </div>
+          </div>
         </div>
 
         {/* Page 3 */}
         <div
           id="page-3"
-          className="opacityNGo min-h-screen pagex  flex flex-col justify-center items-end pr-52"
+          className="opacityNGo min-h-screen pagex  flex flex-col justify-center items-center"
         >
-          <h1 className="text-white text-base font-light w-1/2 ">
-            OrcaPixel is more than just a tech company—we’re your creative and
-            strategic partner. From building responsive websites and mobile apps
-            to driving impactful digital marketing campaigns, we’re committed to
-            delivering solutions that go beyond expectations. Our mission is
-            simple: To help businesses grow, engage, and succeed in a
-            digital-first world.OrcaPixel is more than just a tech company—we’re
-            your creative and strategic partner. From building responsive
-            websites and mobile apps to driving impactful digital marketing
-            campaigns, we’re committed to delivering solutions that go beyond
-            expectations. Our mission is simple: To help businesses grow,
-            engage, and succeed in a digital-first world.
+          <h1 className="text-7xl text-center font-light  mb-4">
+            Your Digital Growth Partner
           </h1>
+
+          <div className="flex justify-center items-center ">
+            <div className="flex justify-center items-center w-[70%]">
+              <ThreeJSComponent />
+              <h1 className="text-white font-light w-1/2 text-center">
+                OrcaPixel is more than just a tech company—we’re your creative
+                and strategic partner. From building responsive websites and
+                mobile apps to driving impactful digital marketing campaigns,
+                we’re committed to delivering solutions that go beyond
+                expectations. Our mission is simple: To help businesses grow,
+                engage, and succeed in a digital-first world.OrcaPixel is more
+                than just a tech company—we’re your creative and strategic
+                partner. From building responsive websites and mobile apps to
+                driving impactful digital marketing campaigns, we’re committed
+                to delivering solutions that go beyond expectations. Our mission
+                is simple: To help businesses grow, engage, and succeed in a
+                digital-first world.
+              </h1>
+            </div>
+          </div>
         </div>
 
         {/* Page 4 */}
         <div
           id="page-4"
-          className="opacityNGo min-h-screen pagex  flex flex-col justify-center items-end pr-52"
+          className="opacityNGo min-h-screen pagex flex justify-center items-center text-center px-4"
         >
-          <h1 className="text-white text-2xl font-light w-1/2 ">
-            Web Design & Development
-          </h1>
-          <h1 className="text-white text-base font-light w-1/2 mt-1">
-            From visually stunning designs to seamless functionality, our
-            websites are built to captivate and convert.
-          </h1>
-          <h1 className="text-white text-2xl font-light w-1/2 mt-10">
-            Mobile App Development
-          </h1>
-          <h1 className="text-white text-base font-light w-1/2 mt-1">
-            Deliver exceptional user experiences with feature-rich and scalable
-            mobile apps for Android and iOS.
-          </h1>
-          <h1 className="text-white text-2xl font-light w-1/2 mt-10">
-            Expand your reach and boost your brand with tailored digital
-            strategies, including:
-          </h1>
-          <ul className="mt-4">
-            <li>Social Media Marketing (SMM)</li>
-            <li>Search Engine Optimization (SEO)</li>
-            <li>Pay-Per-Click Advertising (PPC)</li>
-            <li>Content Marketing</li>
-          </ul>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
+            <div className="flex flex-col  items-center p-4  rounded-xl">
+              <h1 className=" text-2xl font-light text-center">
+                Web Design & Development
+              </h1>
+              <h1 className=" text-base font-light mt-1 text-center">
+                From visually stunning designs to seamless functionality, our
+                websites are built to captivate and convert.
+              </h1>
+            </div>
+            <div className="flex flex-col  items-center p-4  rounded-xl">
+              <h1 className=" text-2xl font-light text-center">
+                Mobile App Development
+              </h1>
+              <h1 className=" text-base font-light mt-1 text-center">
+                Deliver exceptional user experiences with feature-rich and
+                scalable mobile apps for Android and iOS.
+              </h1>
+            </div>
+          </div>
         </div>
+        {/* <div classname="flex flex-col justify-center items-center">
+            <h1 className=" text-2xl font-light w-1/2">
+              Expand your reach and boost your brand with tailored digital
+              strategies, including:
+            </h1>
+            <ul className="mt-4">
+              <li>Social Media Marketing (SMM)</li>
+              <li>Search Engine Optimization (SEO)</li>
+              <li>Pay-Per-Click Advertising (PPC)</li>
+              <li>Content Marketing</li>
+            </ul>
+          </div> */}
       </div>
     </>
   );
