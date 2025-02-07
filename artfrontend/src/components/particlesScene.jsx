@@ -26,18 +26,18 @@ const ParticlesScene = () => {
         50,
         3000
       );
-      camera.position.z = 800;
+      camera.position.z = 200;
 
       // Scene setup
       scene = new THREE.Scene();
-      scene.fog = new THREE.FogExp2(0x0000ff, 0.0008);
+      scene.fog = new THREE.FogExp2(0x40c1f7, 0.0008);
 
       // Particles setup
       const geometry = new THREE.BufferGeometry();
       const vertices = [];
       const size = 3000;
 
-      for (let i = 0; i < 2000; i++) {
+      for (let i = 0; i < 1000; i++) {
         const x = (Math.random() * size + Math.random() * size) / 2 - size / 2;
         const y = (Math.random() * size + Math.random() * size) / 2 - size / 2;
         const z = (Math.random() * size + Math.random() * size) / 2 - size / 2;
@@ -68,8 +68,8 @@ const ParticlesScene = () => {
       // Event listeners
       window.addEventListener("resize", onWindowResize);
       document.body.addEventListener("wheel", onScroll);
-      document.body.addEventListener("touchstart", onTouchStart);
-      document.body.addEventListener("touchmove", onTouchMove);
+      // document.body.addEventListener("touchstart", onTouchStart);
+      // document.body.addEventListener("touchmove", onTouchMove);
     }
 
     function onWindowResize() {
@@ -85,28 +85,28 @@ const ParticlesScene = () => {
       rotationSpeedX += event.deltaY * 0.000005;
     }
 
-    function onTouchStart(event) {
-      if (event.touches.length === 1) {
-        lastTouchX = event.touches[0].pageX;
-        lastTouchY = event.touches[0].pageY;
-      }
-    }
+    // function onTouchStart(event) {
+    //   if (event.touches.length === 1) {
+    //     lastTouchX = event.touches[0].pageX;
+    //     lastTouchY = event.touches[0].pageY;
+    //   }
+    // }
 
-    function onTouchMove(event) {
-      if (event.touches.length === 1) {
-        const touchX = event.touches[0].pageX;
-        const touchY = event.touches[0].pageY;
+    // function onTouchMove(event) {
+    //   if (event.touches.length === 1) {
+    //     const touchX = event.touches[0].pageX;
+    //     const touchY = event.touches[0].pageY;
 
-        const deltaX = lastTouchX - touchX;
-        const deltaY = lastTouchY - touchY;
+    //     const deltaX = lastTouchX - touchX;
+    //     const deltaY = lastTouchY - touchY;
 
-        rotationSpeedY += deltaX * 0.000005;
-        rotationSpeedX += deltaY * 0.000005;
+    //     rotationSpeedY += deltaX * 0.000005;
+    //     rotationSpeedX += deltaY * 0.000005;
 
-        lastTouchX = touchX;
-        lastTouchY = touchY;
-      }
-    }
+    //     lastTouchX = touchX;
+    //     lastTouchY = touchY;
+    //   }
+    // }
 
     function animate() {
       requestAnimationFrame(animate);
@@ -130,8 +130,8 @@ const ParticlesScene = () => {
       mountRef.current.removeChild(renderer.domElement);
       window.removeEventListener("resize", onWindowResize);
       document.body.removeEventListener("wheel", onScroll);
-      document.body.removeEventListener("touchstart", onTouchStart);
-      document.body.removeEventListener("touchmove", onTouchMove);
+      // document.body.removeEventListener("touchstart", onTouchStart);
+      // document.body.removeEventListener("touchmove", onTouchMove);
     };
   }, []);
 

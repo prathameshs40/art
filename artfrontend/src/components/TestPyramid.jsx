@@ -138,7 +138,9 @@ const TestPyramid = () => {
     };
   }, []);
 
-  return <div ref={mountRef} className="h-[70vh] w-1/2 overflow-hidden" />;
+  return (
+    <div ref={mountRef} className="h-[70vh] w-1/2 overflow-hidden opacityNGo" />
+  );
 };
 
 export default TestPyramid;

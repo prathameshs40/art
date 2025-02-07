@@ -53,7 +53,7 @@ function App() {
         <ParticlesScene />
         <Router />
 
-        <Footer />
+        {/* <Footer /> */}
       </SiteContext.Provider>
     </>
   );

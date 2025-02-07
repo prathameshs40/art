@@ -102,13 +102,23 @@ const ThreeJSComponent = () => {
     window.addEventListener("resize", handleResize);
 
     // Cleanup
+    // Cleanup
     return () => {
       window.removeEventListener("resize", handleResize);
-      mountRef.current.removeChild(renderer.domElement);
+
+      // Ensure mountRef.current exists before removing the renderer
+      if (mountRef.current && renderer.domElement) {
+        mountRef.current.removeChild(renderer.domElement);
+      }
     };
   }, []);
 
-  return <div ref={mountRef} className="h-[70vh] w-1/2 overflow-hidden" />;
+  return (
+    <div
+      ref={mountRef}
+      className="h-[70vh] w-1/2 overflow-hidden opacityNGo "
+    />
+  );
 };
 
 export default ThreeJSComponent;

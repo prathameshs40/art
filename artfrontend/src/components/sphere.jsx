@@ -1,24 +1,28 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
+// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { useContext } from "react";
 import SiteContext from "../context/siteContext";
 import { gsap } from "gsap";
+
 const Sphere = () => {
   const mountRef = useRef(null);
-  let scene, camera, renderer;
+  let scene, camera, renderer, controls;
   let geometry, material, sphere;
   let vertices = [];
   let highlightVertices = [];
-  const controls = {
+
+  const config = {
     totalPoints: 1000,
     distributionConstant: 0.67,
     pointSize: 1.8,
     rotationSpeed: 0.002,
-    pointColor: 0xf40009,
+    pointColor: 0x40c1f7,
     highlightPercentage: 1,
     offset: 0,
     highlightEnabled: false,
   };
+
   const {
     aboutPageCounter,
     setAboutPageCounter,
@@ -27,34 +31,26 @@ const Sphere = () => {
   } = useContext(SiteContext);
 
   const tlv = gsap.timeline();
+
   useEffect(() => {
-    if (aboutPageCounter != 0) {
+    if (aboutPageCounter !== 0) {
       tlv.to(".sphere canvas", 1, {
         opacity: 1,
         ease: "power4.out",
-        stagger: {
-          amount: 2,
-        },
+        stagger: { amount: 2 },
       });
-      controls.pointColor = 0xf4f4f4;
-      console.log(controls.pointColor);
-      console.log(material);
-      // material.color.set(controls.pointColor);
-      // highlightPoints();
+      config.pointColor = 0xf4f4f4;
     } else {
       tlv.to(".sphere canvas", 1, {
         opacity: 0,
         ease: "power4.out",
-        stagger: {
-          amount: 2,
-        },
+        stagger: { amount: 2 },
       });
     }
   }, [aboutPageCounter]);
+
   useEffect(() => {
     init();
-    console.log(material);
-
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -63,29 +59,37 @@ const Sphere = () => {
   }, []);
 
   const init = () => {
+    if (!mountRef.current) return;
+    const { clientWidth, clientHeight } = mountRef.current;
+
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(
       75,
-      window.innerWidth / 2 / window.innerHeight,
+      clientWidth / clientHeight,
       0.1,
       1000
     );
     camera.position.z = 500;
 
     renderer = new THREE.WebGLRenderer({ alpha: true });
-    renderer.setSize(window.innerWidth / 2, window.innerHeight);
+    renderer.setSize(clientWidth, clientHeight);
     mountRef.current.appendChild(renderer.domElement);
-    // scene.background = new THREE.Color(0x000000);
+
+    // controls = new OrbitControls(camera, renderer.domElement);
+    // controls.enableDamping = true;
+    // controls.dampingFactor = 0.05;
+    // controls.rotateSpeed = 0.5;
+    // controls.enableZoom = false;
 
     geometry = new THREE.BufferGeometry();
     material = new THREE.PointsMaterial({
-      color: controls.pointColor,
-      size: controls.pointSize,
+      color: config.pointColor,
+      size: config.pointSize,
     });
     sphere = new THREE.Points(geometry, material);
     scene.add(sphere);
 
-    createSphere(controls.totalPoints, controls.distributionConstant);
+    createSphere(config.totalPoints, config.distributionConstant);
     highlightPoints();
     animate();
   };
@@ -111,8 +115,8 @@ const Sphere = () => {
 
   const highlightPoints = () => {
     highlightVertices = [];
-    for (let i = 0; i < controls.totalPoints; i++) {
-      if ((i + controls.offset) % controls.highlightPercentage === 0) {
+    for (let i = 0; i < config.totalPoints; i++) {
+      if ((i + config.offset) % config.highlightPercentage === 0) {
         highlightVertices.push(
           vertices[i * 3],
           vertices[i * 3 + 1],
@@ -129,7 +133,7 @@ const Sphere = () => {
       scene.remove(existingHighlightPoints);
     }
 
-    if (controls.highlightEnabled && highlightVertices.length > 0) {
+    if (config.highlightEnabled && highlightVertices.length > 0) {
       const highlightGeometry = new THREE.BufferGeometry();
       highlightGeometry.setAttribute(
         "position",
@@ -137,7 +141,7 @@ const Sphere = () => {
       );
       const highlightMaterial = new THREE.PointsMaterial({
         color: 0xffd700,
-        size: controls.pointSize * 1.1,
+        size: config.pointSize * 1.1,
       });
       const highlightPoints = new THREE.Points(
         highlightGeometry,
@@ -150,17 +154,25 @@ const Sphere = () => {
 
   const animate = () => {
     requestAnimationFrame(animate);
-    scene.rotation.y += controls.rotationSpeed;
+    scene.rotation.y += config.rotationSpeed;
+    // controls.update();
     renderer.render(scene, camera);
   };
 
   const handleResize = () => {
-    renderer.setSize(window.innerWidth / 2, window.innerHeight);
-    camera.aspect = window.innerWidth / 2 / window.innerHeight;
+    if (!mountRef.current) return;
+    const { clientWidth, clientHeight } = mountRef.current;
+    renderer.setSize(clientWidth, clientHeight);
+    camera.aspect = clientWidth / clientHeight;
     camera.updateProjectionMatrix();
   };
 
-  return <div className={`w-1/2 h-full fixed sphere z-10 `} ref={mountRef} />;
+  return (
+    <div
+      className="hidden sm:block w-full sm:w-1/2 h-full fixed sphere "
+      ref={mountRef}
+    />
+  );
 };
 
 export default Sphere;
