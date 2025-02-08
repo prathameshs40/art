@@ -2,7 +2,7 @@ import { useState, useEffect, React } from "react";
 import SiteContext from "../context/siteContext";
 import { useContext } from "react";
 import { gsap } from "gsap";
-import Sphere from "./../components/sphere";
+import Sphere from "../components/sphere";
 
 const About = () => {
   const [pages, setPages] = useState([]);

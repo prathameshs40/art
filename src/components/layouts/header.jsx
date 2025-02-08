@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import SiteContext from "../../context/siteContext";
-import Stepper from "../layouts/stepper";
+import Stepper from "./stepper";
 import { gsap } from "gsap";
 import { useContext, useEffect } from "react";
 function Header() {
