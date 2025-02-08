@@ -1,10 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SiteContext from "../../context/siteContext";
 import Stepper from "../layouts/stepper";
 import { gsap } from "gsap";
 import { useContext, useEffect } from "react";
 function Header() {
-  const isMenuOpen_temp = true;
   const { isMenuOpen, theme, setTheme, setIsMenuOpen } =
     useContext(SiteContext);
   const navigate = useNavigate();
