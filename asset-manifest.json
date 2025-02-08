@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/orcapixeldesignstudio/static/css/main.9bf8fd41.css",
-    "main.js": "/orcapixeldesignstudio/static/js/main.7c172684.js",
-    "static/js/488.b319e51b.chunk.js": "/orcapixeldesignstudio/static/js/488.b319e51b.chunk.js",
-    "index.html": "/orcapixeldesignstudio/index.html",
-    "main.9bf8fd41.css.map": "/orcapixeldesignstudio/static/css/main.9bf8fd41.css.map",
-    "main.7c172684.js.map": "/orcapixeldesignstudio/static/js/main.7c172684.js.map",
-    "488.b319e51b.chunk.js.map": "/orcapixeldesignstudio/static/js/488.b319e51b.chunk.js.map"
+    "main.css": "/art/static/css/main.9bf8fd41.css",
+    "main.js": "/art/static/js/main.d3eaa61d.js",
+    "static/js/488.b319e51b.chunk.js": "/art/static/js/488.b319e51b.chunk.js",
+    "index.html": "/art/index.html",
+    "main.9bf8fd41.css.map": "/art/static/css/main.9bf8fd41.css.map",
+    "main.d3eaa61d.js.map": "/art/static/js/main.d3eaa61d.js.map",
+    "488.b319e51b.chunk.js.map": "/art/static/js/488.b319e51b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9bf8fd41.css",
-    "static/js/main.7c172684.js"
+    "static/js/main.d3eaa61d.js"
   ]
 }
