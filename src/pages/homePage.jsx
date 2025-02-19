@@ -6,6 +6,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TestPyramid from "../components/TestPyramid";
 import ThreeJSComponent from "../components/ThreeJSComponent";
 import ClientVideo from "../components/ClientVideo";
+import Perl from "../components/Perl";
+import CubeSpin from "../components/CubeSpin";
 function Home() {
   const { isMenuOpen, theme, setTheme, setIsMenuOpen } =
     useContext(SiteContext);
@@ -57,31 +59,49 @@ function Home() {
   return (
     <>
       <div
-        className={`transition-all duration-700 ${
-          theme ? "text-primary-300 " : "text-prime-white-1 "
-        }`}
+        className={`relative transition-all duration-700 
+          ${theme ? "text-prime-white-1 " : " text-prime-dark-3"}
+          `}
       >
         <div
           id="page-1"
-          className="scaleNGo min-h-screen pagex flex flex-col justify-center items-center"
+          className="scaleNGo   min-h-screen pagex flex  justify-center items-center flex-col"
         >
-          <div className="flex flex-col ">
-            <div className="line relative w-auto flex justify-center items-center overflow-hidden">
-              <h1
-                className="text-9xl font-light font-mont uppercase leading-none tracking-prime hero-title
+          <div className="flex justify-center items-center  flex-col-reverse sm:flex-row w-full h-[80vh]">
+            <div className="flex flex-col w-full sm:w-[60%]">
+              <div className="line relative w-auto flex justify-center items-center overflow-hidden">
+                <span
+                  className="text-9xl font-light font-mont uppercase leading-none tracking-prime hero-title 
+"
+                >
+                  OrcaPixel
+                </span>
+              </div>
+              <div className="line relative w-[100%] flex justify-center items-center overflow-hidden mt-1">
+                <span
+                  className="font-light font-mont leading-none sub-title text-center"
+                  style={{ letterSpacing: "1.5em" }}
+                >
+                  DESIGN STUDIO
+                </span>
+              </div>
+            </div>
+            <div className="w-full sm:w-[40%] h-[50vh] sm:h-screen ">
+              <Perl />
+            </div>
+          </div>
+          <div>
+            <div className="line  w-auto flex justify-center items-center overflow-hidden">
+              <span
+                className="tracking-[2.4em] uppercase font-extralight banner-title text-center 
 "
               >
-                OrcaPixel
-              </h1>
-            </div>
-            <div className="line relative w-[100%] flex justify-center items-center overflow-hidden mt-1">
-              <span
-                className="font-light font-mont leading-none sub-title text-center"
-                style={{ letterSpacing: "1.5em" }}
-              >
-                DESIGN STUDIO
+                Go Beyond Imagination
               </span>
             </div>
+            {/* <h1 className="tracking-[2.4em] uppercase font-extralight banner-title text-center">
+              Go Beyond Imagination
+            </h1> */}
           </div>
         </div>
 
@@ -95,6 +115,7 @@ function Home() {
           <div className="flex justify-center items-center ">
             <div className="flex flex-col sm:flex-row justify-center items-center w-[70%]">
               <TestPyramid />
+              {/* <CubeSpin/> */}
               <p className="opacityNGo  font-light w-full sm:w-1/2 text-center">
                 At <span className="text-primary-300">OrcaPixel</span>, we
                 specialize in creating stunning websites, dynamic mobile apps,
@@ -131,7 +152,8 @@ function Home() {
           id="page-4"
           className=" min-h-screen pagex flex flex-col justify-center items-center text-center px-4"
         >
-          <ClientVideo src="trikuta.mp4" />
+          <ClientVideo src={`${process.env.PUBLIC_URL}/trikuta.mp4`} />
+
           <div className="grid grid-cols-1 md:grid-cols-1 gap-6 w-full max-w-4xl mt-10 ">
             <div className="flex flex-col  items-center">
               <h4 className=" text-2xl font-light text-center opacityNGo ">

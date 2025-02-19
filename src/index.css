@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 * {
-  @apply text-prime-white-2 fill-prime-white-2;
+  /* @apply text-prime-white-2 fill-prime-white-2; */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 .letterAnimation {
   will-change: transform;
@@ -21,7 +23,12 @@
 }
 
 .hero-title {
-  font-size: clamp(30px, 7vw, 9vw);
+  font-size: clamp(40px, 80px, 8vw);
+  /* font-size: clamp(3.4vw, 6vw, 7vw); */
+}
+
+.banner-title {
+  font-size: clamp(12px, 18px, 2vw);
 }
 
 .mid-title {
@@ -29,23 +36,33 @@
 }
 
 .sub-title {
-  font-size: clamp(8px, 1.5vw, 1.8vw);
+  /* font-size: clamp(0.8vw, 1.4vw, 2vw); */
+  font-size: clamp(12px, 18px, 2vw);
+  /* font-size: clamp(8px, 1.5vw, 1.8vw); */
+}
+
+
+
+.font-mont {
+  font-family: "Montserrat", serif;
 }
 
 .font-dm {
   font-family: "DM Serif Display", "Montserrat";
 }
 
-.font-mont {
-  font-family: "Montserrat", serif;
-}
-
 body {
   position: relative;
   font-family: "Montserrat";
   overflow-x: hidden;
-  @apply bg-prime-dark-2
+  @apply bg-prime-white-3 text-prime-dark-2;
+
+  /* @apply bg-prime-dark-2 */
 }
+
+/* .dark body {
+  @apply bg-prime-dark-2 text-white;
+} */
 
 canvas {
   display: block;

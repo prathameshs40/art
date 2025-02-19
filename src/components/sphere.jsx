@@ -13,9 +13,9 @@ const Sphere = () => {
   let highlightVertices = [];
 
   const config = {
-    totalPoints: 1000,
-    distributionConstant: 0.67,
-    pointSize: 1.8,
+    totalPoints: 3330,
+    distributionConstant: 2.07,
+    pointSize: 1.5,
     rotationSpeed: 0.002,
     pointColor: 0x40c1f7,
     highlightPercentage: 1,
@@ -155,6 +155,8 @@ const Sphere = () => {
   const animate = () => {
     requestAnimationFrame(animate);
     scene.rotation.y += config.rotationSpeed;
+    scene.rotation.x += config.rotationSpeed;
+    scene.rotation.z += config.rotationSpeed;
     // controls.update();
     renderer.render(scene, camera);
   };

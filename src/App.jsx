@@ -1,4 +1,4 @@
-import Router from "./routes/routes";
+import AppRouter from "./routes/routes";
 import ParticlesScene from "./components/particlesScene";
 import Header from "./components/layouts/header";
 
@@ -48,10 +48,14 @@ function App() {
         }}
       >
         <Header />
-        <ParticlesScene />
-        <Router />
-
-        {/* <Footer /> */}
+        <div
+          className={`transition-all duration-700 ${
+            theme ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <ParticlesScene />
+        </div>
+        <AppRouter />
       </SiteContext.Provider>
     </>
   );
